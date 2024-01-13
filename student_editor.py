@@ -37,9 +37,11 @@ while True:
                 for i, subject in enumerate(subjects, 1):
                     print(f"{i}.  {subject}")
                 subject = input(": ")
-                if subject.isnumeric and 0 < int(subject) <= len(subjects):
+                if subject.isnumeric() and 0 < int(subject) <= len(subjects): # isnumeric missing  '(' ')'
                     subject = int(subject)-1
-                    grade = input("Please enter a new grade: ")
+                    grade = input("Please enter a new grade: ") # Didn't cast to int
+                    # Validation
+                    grade = int(grade)
                     student_grades = student[3]
                     student_grades[subject] = grade
             elif edit_option == "0":
